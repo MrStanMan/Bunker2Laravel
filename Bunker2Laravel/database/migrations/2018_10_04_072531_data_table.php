@@ -13,7 +13,13 @@ class DataTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('data_table', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('title');
+            $table->string('info');
+            $table->string('afdeling');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +29,6 @@ class DataTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('data_table');
     }
 }
