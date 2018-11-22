@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
             <div class="card">
                 <div class="card-header">Dashboard</div>
 
@@ -15,6 +15,26 @@
                     @endif
 
                     You are logged in!
+					
+					<!--Display data from HomeController-->
+					<table class="table">
+						<tr>
+							<td scope="col">#</td>
+							<td scope="col">Titel</td>
+							<td scope="col">Info</td>
+							<td scope="col">Afdeling</td>
+						</tr>
+						@foreach( $datas as $data)
+						
+						<tr>
+							<th scope="row">{{ $data->id }}</th>
+							<td>{{ $data->title }}</td>
+							<td>{{ $data->info }}</td>
+							<td>{{ $data->afdeling }}</td>
+						</tr>
+						
+						@endforeach
+					</table>
                 </div>
             </div>
         </div>
