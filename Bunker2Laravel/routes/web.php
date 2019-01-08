@@ -11,14 +11,21 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::get('/', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/add', function () {
+    return view('add');
 });
 
-Auth::routes();
+Route::get('/delete/{id}','DataController@delete');
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('/add/create', 'CreateController');
